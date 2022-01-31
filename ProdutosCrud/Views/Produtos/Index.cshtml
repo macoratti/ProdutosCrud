@@ -1,0 +1,49 @@
+﻿@model IEnumerable<ProdutosCrud.Models.Produto>
+
+<h1>Produtos</h1>
+
+<p>
+    <a asp-action="Create">Criar Produto</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProdutoNome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Preco)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estoque)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Imagem)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProdutoNome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Preco)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estoque)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Imagem)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ProdutoId">Edita</a> |
+                <a asp-action="Details" asp-route-id="@item.ProdutoId">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.ProdutoId">Deleta</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
